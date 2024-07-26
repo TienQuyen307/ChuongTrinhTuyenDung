@@ -16,18 +16,18 @@ public class Main {
         EvaluationService evaluationService = new EvaluationService();
         StatisticsService statisticsService = new StatisticsService();
 
-        // Pre-defined school data
+        // dữ liệu trường học được thiết lập trước
         Map<String, School> schools = new HashMap<>();
         schools.put("S001", new School("S001", "Trường Đại Học A", "contact@universitya.edu", "Công nghệ thông tin"));
         schools.put("S002", new School("S002", "Trường Đại Học B", "contact@universityb.edu", "Kinh tế"));
 
-        // Sample data for testing
+        // dữ liệu mẫu dùng để thử nghiệm
         candidateService.addCandidate(new Candidate("C001", "Nguyễn Văn A", 1995, "S001", "Kỹ sư phần mềm"));
         candidateService.addCandidate(new Candidate("C002", "Trần Thị B", 1996, "S002", "Nhân viên kinh doanh"));
 
         Scanner scanner = new Scanner(System.in);
 
-        // Step 2.2: Enter candidate information
+        // Nhập thông tin ứng viên
         System.out.println("Nhập thông tin ứng viên (để trống để kết thúc): ");
         while (true) {
             System.out.print("Mã ứng viên: ");
@@ -49,7 +49,7 @@ public class Main {
             candidateService.addCandidate(new Candidate(candidateId, name, birthYear, schoolId, position));
         }
 
-        // Step 2.3: Evaluate candidate
+        // Đánh giá ứng viên
         System.out.println("Đánh giá ứng viên: ");
         while (true) {
             System.out.print("Mã ứng viên: ");
@@ -67,7 +67,7 @@ public class Main {
             evaluationService.evaluateCandidate(candidate, result);
         }
 
-        // Step 2.4: Print statistics
+        // In thống kê
         System.out.println("Nhập danh sách mã ứng viên để thống kê (cách nhau bởi dấu phẩy): ");
         String[] candidateIds = scanner.nextLine().split(",");
 
